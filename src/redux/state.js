@@ -1,3 +1,4 @@
+import {renderEntireTree} from '../render'
 let state = {
   profilePage: {
     posts: [
@@ -9,18 +10,50 @@ let state = {
   },
   dialogsPage: {
     dialogs: [
-      { id: 1, name: "Yan" },
-      { id: 2, name: "vlad" },
-      { id: 3, name: "Liza" },
-      { id: 4, name: "obama" },
-    ],
-    messages: [
-      { id: 1, massage: "hi" },
-      { id: 1, massage: "goo" },
-      { id: 1, massage: "bidlo" },
-      { id: 1, massage: "kukuha" },
+      {
+        id: 1,
+        name: "Yan",
+        avatar: "https://mena.org.ua/wp-content/uploads/2014/03/avatar.png",
+        messages: [
+          { id: 1, message: "hi", type: "received" },
+          { id: 2, message: "ass", type: "received" },
+          { id: 3, message: "lox", type: "sent" },
+        ],
+      },
+      {
+        id: 2,
+        name: "vlad",
+        avatar: "https://mena.org.ua/wp-content/uploads/2014/03/avatar.png",
+        messages: [
+          { id: 1, message: "goo" },
+          { id: 2, message: "putin sdoh", type: "sent" },
+          { id: 3, message: "chupa lox", type: "received" },
+        ],
+      },
+      {
+        id: 3,
+        name: "Liza",
+        avatar: "https://mena.org.ua/wp-content/uploads/2014/03/avatar.png",
+        messages: [{ id: 1, message: "bidlo" }],
+      },
+      {
+        id: 4,
+        name: "obama",
+        avatar: "https://mena.org.ua/wp-content/uploads/2014/03/avatar.png",
+        messages: [{ id: 1, message: "kukuha" }],
+      },
     ],
   },
 };
+
+export let addPost = (postMessage)=> {
+  let newPost = {
+    id: 5,
+    message: postMessage,
+    likesCount: 0
+  }
+  state.profilePage.posts.push(newPost)
+  renderEntireTree(state)
+}
 
 export default state;
