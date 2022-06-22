@@ -3,13 +3,15 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { addPost } from "./redux/state";
+import { addPost, updataNewPostText } from "./redux/state";
 
 export let renderEntireTree = (state) => {
   ReactDOM.render(
     <React.StrictMode>
       <App
         posts={state.profilePage.posts}
+        newPostText={state.profilePage.newPostText}
+        updataNewPostText={updataNewPostText}
         dialogs={state.dialogsPage.dialogs}
         addPost={addPost}
       />

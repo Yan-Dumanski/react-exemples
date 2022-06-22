@@ -7,6 +7,7 @@ let state = {
       { id: 3, message: "yes!", likesCount: 54 },
       { id: 4, message: "no", likesCount: 32 },
     ],
+    newPostText: 'Codding'
   },
   dialogsPage: {
     dialogs: [
@@ -56,4 +57,22 @@ export let addPost = (postMessage)=> {
   renderEntireTree(state)
 }
 
+export let updataNewPostText = (newText)=> {
+  state.profilePage.newPostText = newText
+  renderEntireTree(state)
+}
+
+export const subscribe = (newText) =>  {
+
+}
+
+// export let addMessage = (text)=> {
+//   let newPost = {
+//     id: 5,
+//     message: postMessage,
+//     likesCount: 0
+//   }
+//   state.profilePage.posts.push(newPost)
+//   renderEntireTree(state)
+// }
 export default state;
